@@ -1,6 +1,8 @@
 // Capa de acceso a datos: las rutas NUNCA tocan los arrays directamente.
 // En el bloque 3 este archivo se sustituye por consultas a la base de datos
 // y las rutas apenas cambian.
+const {Curso, Alumno} = require('../esquemas/index.model')
+
 let cursos = [
   { id: 1, nombre: 'Desarrollo web en entorno servidor', horas: 160 }
 ];

@@ -1,6 +1,6 @@
 const express = require('express');
 const validar = require('../middlewares/validar');
-const esquemaCurso = require('../esquemas/curso.esquema');
+const esquemaCurso = require('../esquemas/curso.model');
 const ErrorHTTP = require('../utils/ErrorHTTP');
 const datos = require('../datos/almacen');
 

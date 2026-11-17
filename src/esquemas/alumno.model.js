@@ -1,8 +1,23 @@
-const { z } = require('zod');
+const {DataTypes} = require('sequelize');
+const sequelize = require('src/db/database')
 
-const esquemaAlumno = z.object({
-  nombre: z.string({ required_error: 'El nombre es obligatorio' }).trim().min(1, 'El nombre no puede estar vacío'),
-  email: z.string({ required_error: 'El email es obligatorio' }).trim().toLowerCase().email('El email no es válido')
-});
+const Alumno = sequelize.define('Alumno', {
+  nombre: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: {msg: 'El nombre no puede estar vacio'},
+      notNull: {msg: "El nombre es obligatorio"}
+    }
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      isEmail:{msg: "El email no es valido"},
+      notNull: {msg: "El email es obligatorio"}
+    }
+  }
+})
 
-module.exports = esquemaAlumno;
+module.exports = Alumno;

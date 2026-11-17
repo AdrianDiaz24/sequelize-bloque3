@@ -1,3 +1,7 @@
-const Curso = require('curso.esquema')
-const Alumno = require('src/esquemas/alumno.model')
+const Curso = require('./curso.model')
+const Alumno = require('./alumno.model')
 
+Curso.hasMany(Alumno)
+Alumno.belongsTo(Curso)
+
+module.exports = {Curso, Alumno}
